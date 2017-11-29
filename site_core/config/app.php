@@ -176,7 +176,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        /*
+         * Backpack Service Providers...
+         */
+        Backpack\PermissionManager\PermissionManagerServiceProvider::class,
     ],
 
     /*

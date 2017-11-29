@@ -18,10 +18,10 @@ mix.setPublicPath('../public')
     .js('resources/assets/js/app.js', 'js')
     .sass('resources/assets/sass/app.scss', 'css');
 */
-mix.setPublicPath('..\\public');
+mix.setPublicPath('..\\public_html');
 
-mix.js('resources/assets/js/app.js', '..\\public/js') // Or 'assets/js'
-   .sass('resources/assets/sass/app.scss', '..\\public/css') // Or 'assets/css'
+mix.js('resources/assets/js/app.js', '..\\public_html/js') // Or 'assets/js'
+   .sass('resources/assets/sass/app.scss', '..\\public_html/css') // Or 'assets/css'
    .options({ 
       processCssUrls: false
    });
