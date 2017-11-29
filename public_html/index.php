@@ -34,8 +34,15 @@ require __DIR__.'/../site_core/vendor/autoload.php';
 | the responses back to the browser and delight our users.
 |
 */
-
+/* Orig
 $app = require_once __DIR__.'/../site_core/bootstrap/app.php';
+*/
+$app = require_once __DIR__.'/../site_core/bootstrap/app.php';
+
+// set the public path to this directory
+$app->bind('path.public', function() {
+    return __DIR__;
+});
 
 /*
 |--------------------------------------------------------------------------
