@@ -179,6 +179,7 @@ return [
         /*
          * Backpack Service Providers...
          */
+        Backpack\LangFileManager\LangFileManagerServiceProvider::class,
         Backpack\PermissionManager\PermissionManagerServiceProvider::class,
     ],
 
