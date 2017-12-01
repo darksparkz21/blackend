@@ -19,6 +19,6 @@ class PageController extends Controller
         $this->data['title'] = $page->title;
         $this->data['page'] = $page->withFakes();
 
-        return view('bppages.'.$page->template, $this->data);
+        return view('cmspages.'.$page->template, $this->data);
     }
 }
