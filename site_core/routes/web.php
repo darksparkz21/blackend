@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function()
+Route::group(['prefix' => 'admin', 'middleware' => ['admin','clearance'], 'namespace' => 'Admin'], function()
 {
     CRUD::resource('menu-item', 'MenuItemCrudController');
     CRUD::resource('article', 'ArticleCrudController');
