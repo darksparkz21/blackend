@@ -1,3 +1,3 @@
 # blackend
 
-A Laravel Backpack with Custom Admin. Ready for site Deployment.
+A Laravel Backpack with Custom Admin and Restructured Directory, ready for Deployment.
