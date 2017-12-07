@@ -10,7 +10,7 @@ return [
     | The dir where to store the images (relative from public)
     |
     */
-    'dir' => ['uploads'],
+    'dir' => ['uploads','images'],
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,8 @@ return [
     |    ]
     */
     'disks' => [
-        // 'uploads',
+         //'uploads',
+         //'backups'
     ],
 
     /*
@@ -40,7 +41,7 @@ return [
 
     'route' => [
         'prefix'     => config('backpack.base.route_prefix', 'admin').'/elfinder',
-        'middleware' => ['web', 'admin'], //Set to null to disable middleware filter
+        'middleware' => ['web', 'admin','clearance'], //Set to null to disable middleware filter
     ],
 
     /*

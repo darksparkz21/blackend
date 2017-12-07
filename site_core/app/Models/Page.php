@@ -7,38 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
-class Article extends Model
+class Page extends Model
 {
     use CrudTrait;
-    use Sluggable, SluggableScopeHelpers;
-    
-    // Revisions config
-    use \Venturecraft\Revisionable\RevisionableTrait;
-    // If you are using another bootable trait the be sure to override the boot method in your model
-    public static function boot()
-    {
-        parent::boot();
-    }
-    protected $revisionEnabled = true;
-    protected $revisionCleanup = true; //Remove old revisions (works only when used with $historyLimit)
-    protected $historyLimit = 500; //Maintain a maximum of 500 changes at any point of time, while cleaning up old revisions.
+    use Sluggable;
+    use SluggableScopeHelpers;
+
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'articles';
+    protected $table = 'pages';
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['slug', 'title', 'content', 'image', 'status', 'category_id', 'featured', 'date'];
+    protected $fillable = ['template', 'name', 'title', 'slug', 'content', 'extras'];
     // protected $hidden = [];
     // protected $dates = [];
-    protected $casts = [
-        'featured'  => 'boolean',
-        'date'      => 'date',
-    ];
+    protected $fakeColumns = ['extras'];
 
     /**
      * Return the sluggable configuration array for this model.
@@ -60,21 +48,27 @@ class Article extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function getTemplateName()
+    {
+        return trim(preg_replace('/(id|at|\[\])$/i', '', ucfirst(str_replace('_', ' ', $this->template))));
+    }
+
+    public function getPageLink()
+    {
+        return url($this->slug);
+    }
+
+    public function getOpenButton()
+    {
+        return '<a class="btn btn-default btn-xs" href="'.$this->getPageLink().'" target="_blank">'.
+            '<i class="fa fa-eye"></i> '.trans('backpack::pagemanager.open').'</a>';
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
-    public function category()
-    {
-        return $this->belongsTo('App\Models\Category', 'category_id');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany('App\Models\Tag', 'article_tag');
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -82,20 +76,13 @@ class Article extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function scopePublished($query)
-    {
-        return $query->where('status', 'PUBLISHED')
-                    ->where('date', '<=', date('Y-m-d'))
-                    ->orderBy('date', 'DESC');
-    }
-
     /*
     |--------------------------------------------------------------------------
     | ACCESORS
     |--------------------------------------------------------------------------
     */
 
-    // The slug is created automatically from the "title" field if no slug exists.
+    // The slug is created automatically from the "name" field if no slug exists.
     public function getSlugOrTitleAttribute()
     {
         if ($this->slug != '') {
