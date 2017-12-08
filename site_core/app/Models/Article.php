@@ -11,7 +11,17 @@ class Article extends Model
 {
     use CrudTrait;
     use Sluggable, SluggableScopeHelpers;
-
+    
+    // Revisions config
+    use \Venturecraft\Revisionable\RevisionableTrait;
+    // If you are using another bootable trait the be sure to override the boot method in your model
+    public static function boot()
+    {
+        parent::boot();
+    }
+    protected $revisionEnabled = true;
+    protected $revisionCleanup = true; //Remove old revisions (works only when used with $historyLimit)
+    protected $historyLimit = 500; //Maintain a maximum of 500 changes at any point of time, while cleaning up old revisions.
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -58,12 +68,12 @@ class Article extends Model
 
     public function category()
     {
-        return $this->belongsTo('Backpack\NewsCRUD\app\Models\Category', 'category_id');
+        return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Tag', 'article_tag');
+        return $this->belongsToMany('App\Models\Tag', 'article_tag');
     }
 
     /*
