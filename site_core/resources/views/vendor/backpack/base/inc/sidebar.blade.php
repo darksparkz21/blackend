@@ -19,6 +19,7 @@
           <!-- ================================================ -->
           <!-- ==== Recommended place for admin menu items ==== -->
           <!-- ================================================ -->
+          @if(Auth::user()->hasRole('SuperAdmin'))
           <li><a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
           <li class="treeview">
               <a href="#"><i class="fa fa-newspaper-o"></i> <span>Blog</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -45,9 +46,18 @@
           <li><a href="{{ backpack_url( 'language/texts') }}"><i class="fa fa-language"></i> <span>Language Files</span></a></li>
           <li><a href="{{ backpack_url('log') }}"><i class="fa fa-terminal"></i> <span>Logs</span></a></li>
           <li><a href="{{ backpack_url('setting') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
-
+          @endif
           <!-- ======================================= -->
           {{-- <li class="header">Other menus</li> --}}
+          {{--Admin Menus--}}
+          @if(Auth::user()->hasRole('Administrator'))
+
+          @endif
+
+          {{--Normal User Menu--}}
+          @if(Auth::user()->hasRole('User'))
+
+          @endif
         </ul>
       </section>
       <!-- /.sidebar -->
