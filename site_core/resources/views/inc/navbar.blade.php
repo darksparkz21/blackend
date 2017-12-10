@@ -35,6 +35,13 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    @if(Auth::user()->hasRole('SuperAdmin'))
+                                    <li><a href="{{url('admin')}}">Control Panel</a></li>
+                                    @elseif(Auth::user()->hasRole('Administrator'))
+                                    <li><a href="{{route('dashboard')}}">Admin Panel</a></li>
+                                    @elseif(Auth::user()->hasRole('User'))
+                                    <li><a href="{{route('dashboard')}}">Profile</a></li>
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

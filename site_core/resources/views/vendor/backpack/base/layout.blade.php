@@ -74,6 +74,9 @@
           </a>
 
           @include('backpack::inc.menu')
+          
+          @include('backpack::inc.notifs')
+          
         </nav>
       </header>
 
@@ -106,6 +109,7 @@
         @endif
         {{ trans('backpack::base.handcrafted_by') }} <a target="_blank" href="{{ config('backpack.base.developer_link') }}">{{ config('backpack.base.developer_name') }}</a>.
       </footer>
+        {{--@include('backpack::inc.controlsidebar')--}}
     </div>
     <!-- ./wrapper -->
 
