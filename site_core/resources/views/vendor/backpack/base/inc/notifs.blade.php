@@ -5,17 +5,17 @@
     <li class="dropdown messages-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
-            <span class="label label-success">21</span>
+            <span class="label label-success">8</span>
         </a>
         <ul class="dropdown-menu">
-            <li class="header">You have 21 messages</li>
+            <li class="header">You have 8 messages</li>
             <li>
             <!-- inner menu: contains the actual data -->
             <ul class="menu">
                 <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="{{ backpack_avatar_url(Auth::user()) }}" class="img-circle" alt="User Image">
+                        <img src="{{url('/images/defaults/default-img.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -28,7 +28,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="{{url('/images/defaults/default-img.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         AdminLTE Design Team
@@ -40,7 +40,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="{{url('/images/defaults/default-img.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Developers
@@ -52,7 +52,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="{{url('/images/defaults/default-img.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Sales Department
@@ -64,7 +64,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="{{url('/images/defaults/default-img.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Reviewers
@@ -82,10 +82,10 @@
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              <span class="label label-warning">21</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">You have 21 notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
@@ -124,10 +124,10 @@
           <li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
+              <span class="label label-danger">15</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
+              <li class="header">You have 15 tasks</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
@@ -201,14 +201,14 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ backpack_avatar_url(Auth::user()) }}" class="user-image" alt="User Image">
+              <img src="{{url('/images/defaults/default-img.jpg')}}" class="user-image" alt="{{Auth::user()->name}}">
               
               <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{ backpack_avatar_url(Auth::user()) }}" class="img-circle" alt="User Image">
+                <img src="{{url('/images/defaults/default-img.jpg')}}" class="img-circle" alt="{{Auth::user()->name}}">
 
                 <p>
                   {{Auth::user()->name}} - Web Developer
