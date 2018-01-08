@@ -2,5 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/ionicons.css": "/css/ionicons.css",
-    "/css/fa.css": "/css/fa.css"
+    "/css/fa.css": "/css/fa.css",
+    "/css/dropzone.css": "/css/dropzone.css",
+    "/js/dropzone.js": "/js/dropzone.js"
 }

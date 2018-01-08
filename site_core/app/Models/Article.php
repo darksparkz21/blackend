@@ -77,6 +77,12 @@ class Article extends Model
     |--------------------------------------------------------------------------
     */
 
+    // User Relations 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function category()
     {
         return $this->belongsTo('App\Models\Category', 'category_id');

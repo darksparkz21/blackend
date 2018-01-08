@@ -8,6 +8,8 @@ use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNo
 use Backpack\CRUD\CrudTrait; // <------------------------------- this one
 use Spatie\Permission\Traits\HasRoles;// <---------------------- and this one
 
+use App\Models\Article;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -43,6 +45,12 @@ class User extends Authenticatable
         $this->notify(new ResetPasswordNotification($token));
     }
 
+    /* Relations */
+    
 
+    public function posts()
+    {
+        return $this->hasMany(Article::class, 'user_id');
+    }
     
 }
