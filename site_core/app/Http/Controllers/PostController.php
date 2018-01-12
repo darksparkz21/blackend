@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
@@ -96,16 +97,19 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $posts)
+    public function update(Request $request, Article $articles)
     {
         $this->validate($request, [
-            'title'        => 'required|max:255',
+            'title' => 'required|max:255',
+            'slug' => 'required',
             'content' => 'required',
         ]);
  
-        $posts->title = request('title');
-        $posts->content = request('content');
-        $posts->save();
+        $articles->title = request('title');
+        $articles->slug = request('slug');
+        $articles->content = request('content');
+        $articles->user_id = Auth::user()->id;
+        $articles->save();
  
         return response()->json([
             'message' => 'Posts updated successfully!'
@@ -118,9 +122,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $articles)
     {
-        $posts->delete();
+        $articles->delete();
     }
 
     public function page()

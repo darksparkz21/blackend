@@ -72,7 +72,11 @@ blackend.controller('PostController', ['$scope','$http', function($scope,$http){
             if (error.data.errors.title) {
                 $scope.errors.push(error.data.errors.title[0]);
             }
-    
+            
+            if (error.data.errors.slug) {
+                $scope.errors.push(error.data.errors.slug[0]);
+            }
+
             if (error.data.errors.content) {
                 $scope.errors.push(error.data.errors.content[0]);
             }
@@ -80,6 +84,7 @@ blackend.controller('PostController', ['$scope','$http', function($scope,$http){
     
         $scope.resetForm = function () {
             $scope.posts.title = '';
+            $scope.posts.slug = '';
             $scope.posts.content = '';
             $scope.errors = [];
         };
@@ -96,6 +101,7 @@ blackend.controller('PostController', ['$scope','$http', function($scope,$http){
         $scope.updatePost = function () {
             $http.patch('/posts/' + $scope.edit_post.id, {
                 title: $scope.edit_post.title,
+                slug: $scope.edit_post.slug,
                 content: $scope.edit_post.content
             }).then(function success(e) {
                 $scope.errors = [];

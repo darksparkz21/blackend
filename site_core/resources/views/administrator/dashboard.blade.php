@@ -32,8 +32,8 @@
                                     @{{ index + 1 }}
                                 </td>
                                 <td>@{{ posts.title }}</td>
+                                <td>@{{ posts.slug }}</td>
                                 <td>@{{ posts.content }}</td>
-                                <td>@{{ posts.category_id }}</td>
                                 <td>@{{  }}</td>
                                 <td>
                                     <button class="btn btn-default btn-xs" ng-click="initEdit(index)">Edit</button>
