@@ -20,6 +20,8 @@ Route::get('/', 'PostController@page');
 */
 Auth::routes();
 
+Route::resource('/blogs', 'AmpController');
+
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::resource('/posts', 'PostController');
 Route::post('/image-upload', 'PostController@uploadImages');

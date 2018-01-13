@@ -23,6 +23,7 @@ mix.setPublicPath('..\\public_html');
 mix.js('resources/assets/js/app.js', '..\\public_html/js') // Or 'assets/js'
     .js('resources/assets/js/dropzone.js', '..\\public_html/js')
     .sass('resources/assets/sass/app.scss', '..\\public_html/css') // Or 'assets/css'
+    .sass('resources/assets/sass/ampbootstrap.scss', '..\\public_html/css')
     .sass('resources/assets/sass/ionicons.scss', '..\\public_html/css')
     .sass('resources/assets/sass/fa.scss', '..\\public_html/css')
     .sass('resources/assets/sass/dropzone.scss', '..\\public_html/css')
