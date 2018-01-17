@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Androidizay;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -8,7 +8,7 @@ use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNo
 use Backpack\CRUD\CrudTrait; // <------------------------------- this one
 use Spatie\Permission\Traits\HasRoles;// <---------------------- and this one
 
-use App\Models\Article;
+use Androidizay\Models\Article;
 
 class User extends Authenticatable
 {

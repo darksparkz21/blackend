@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Extensions;
+namespace Androidizay\Extensions;
 
 use Illuminate\Foundation\Application as LaravelApplication;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Androidizay\Http\Controllers\Admin;
 
-use App\Http\Requests;
-use Backpack\CRUD\App\Http\Controllers\CrudController;
+use Androidizay\Http\Requests;
+use Backpack\CRUD\Androidizay\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use Backpack\CRUD\App\Http\Requests\CrudRequest as StoreRequest;
-use Backpack\CRUD\App\Http\Requests\CrudRequest as UpdateRequest;
+use Backpack\CRUD\Androidizay\Http\Requests\CrudRequest as StoreRequest;
+use Backpack\CRUD\Androidizay\Http\Requests\CrudRequest as UpdateRequest;
 
 class MenuItemCrudController extends CrudController
 {
@@ -14,7 +14,7 @@ class MenuItemCrudController extends CrudController
     {
         parent::__construct();
 
-        $this->crud->setModel("App\Models\MenuItem");
+        $this->crud->setModel("Androidizay\Models\MenuItem");
         $this->crud->setRoute(config('backpack.base.route_prefix').'/menu-item');
         $this->crud->setEntityNameStrings('menu item', 'menu items');
 
@@ -31,7 +31,7 @@ class MenuItemCrudController extends CrudController
                                 'name' => 'parent_id',
                                 'entity' => 'parent',
                                 'attribute' => 'name',
-                                'model' => "App\Models\MenuItem",
+                                'model' => "Androidizay\Models\MenuItem",
                             ]);
 
         $this->crud->addField([
@@ -44,13 +44,13 @@ class MenuItemCrudController extends CrudController
                                 'name' => 'parent_id',
                                 'entity' => 'parent',
                                 'attribute' => 'name',
-                                'model' => "App\Models\MenuItem",
+                                'model' => "Androidizay\Models\MenuItem",
                             ]);
         $this->crud->addField([
                                 'name' => 'type',
                                 'label' => 'Type',
                                 'type' => 'page_or_link',
-                                'page_model' => 'App\Models\Page', // '\Backpack\PageManager\app\Models\Page',
+                                'page_model' => 'Androidizay\Models\Page', // '\Backpack\PageManager\app\Models\Page',
                             ]);
     }
 

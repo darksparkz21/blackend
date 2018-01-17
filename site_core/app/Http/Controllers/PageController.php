@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Androidizay\Http\Controllers;
 
 use Backpack\PageManager\app\Models\Page;
-use App\Http\Controllers\Controller;
+use Androidizay\Http\Controllers\Controller;
 
 class PageController extends Controller
 {

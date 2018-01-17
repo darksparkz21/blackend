@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Androidizay\Models;
 
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -54,17 +54,17 @@ class Category extends Model
 
     public function parent()
     {
-        return $this->belongsTo('App\Models\Category', 'parent_id');
+        return $this->belongsTo('Androidizay\Models\Category', 'parent_id');
     }
 
     public function children()
     {
-        return $this->hasMany('App\Models\Category', 'parent_id');
+        return $this->hasMany('Androidizay\Models\Category', 'parent_id');
     }
 
     public function articles()
     {
-        return $this->hasMany('App\Models\Article');
+        return $this->hasMany('Androidizay\Models\Article');
     }
 
     /*

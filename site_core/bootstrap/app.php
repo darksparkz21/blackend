@@ -15,7 +15,7 @@ $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
 */
-$app = new App\Extensions\Application(
+$app = new Androidizay\Extensions\Application(
     realpath(__DIR__ . '/..')
 );
 
@@ -32,17 +32,17 @@ $app = new App\Extensions\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    App\Http\Kernel::class
+    Androidizay\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
+    Androidizay\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
+    Androidizay\Exceptions\Handler::class
 );
 
 /*

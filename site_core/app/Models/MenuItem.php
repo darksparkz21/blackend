@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Androidizay\Models;
 
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -14,17 +14,17 @@ class MenuItem extends Model
 
     public function parent()
     {
-        return $this->belongsTo('App\Models\MenuItem', 'parent_id');
+        return $this->belongsTo('Androidizay\Models\MenuItem', 'parent_id');
     }
 
     public function children()
     {
-        return $this->hasMany('App\Models\MenuItem', 'parent_id');
+        return $this->hasMany('Androidizay\Models\MenuItem', 'parent_id');
     }
 
     public function page()
     {
-        return $this->belongsTo('App\Models\Page', 'page_id');
+        return $this->belongsTo('Androidizay\Models\Page', 'page_id');
     }
 
     /**

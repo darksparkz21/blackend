@@ -1,15 +1,159 @@
-.ai-main{
-    background: #fafafa;
-    margin: 0;
-    padding: 24px 4px 7px 4px;
-    border:1px solid #d3e0e9;
+body{
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 .main-body{
     min-height: 600px;
     margin-bottom: 21px;
 }
-.footer{
+.panel-a{
+    margin-bottom: 0!important;
+    border-radius: 6px 6px 0 0!important;
+    border-bottom: 1px solid #d3e0e9!important;
+}
+.main-content{
     background: #ffffff;
+    min-height: 600px;
+    border-radius: 0 0 6px 6px;
+    -webkit-box-shadow: 0 6px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.05);
+}
+.main-cont,
+.main-sidebar{
+    padding: 0 14px;
+    min-height: 600px;
+    background: #fff;
+}
+.main-cont {
+    border-radius: 6px 0 0 6px;
+    border-right: 1px solid #e9e9e9;
+}
+@media (max-width: 992px){
+    .main-cont{
+        border-radius: 0;
+        border-right: none;
+        border-bottom: 1px solid #e9e9e9;
+    }
+    .main-sidebar{
+        border-radius: 0 0 6px 6px;
+    }
+    .ai-title,.ai-slogan{
+        text-align: center!important;
+    }
+}
+.main-sidebar {
+    border-radius: 0 6px 6px 0;
+}
+.ai-header{
+    overflow: hidden;
+}
+.ai-header-logo,
+.ai-header-name{
+    padding: 21px 0 20px 0;
+}
+.ai-header-logo img{
+    width: 100%;
+}
+img.ai-logo{
+    margin: 22px auto 11px auto;
+    display: block;
+    width: 140px;
+    height: 140px;
+}
+.ai-title{
+    text-align: left;
+    font-family: 'PoiretOne',sans-serif;
+    font-size: 48px;
+    color: #fff;
+    
+}
+.ai-slogan{
+    text-align: left;
+    font-family: 'AmaticSC', sans-serif;
+    font-size: 48px;
+    color: #fff;
+}
+h2.ai-title,h3.ai-slogan{    
+    margin-top:7px!important;
+}
+.col-pad-reset{
+    padding-right:0!important;
+    padding-left:0!important;
+}
+.footer{
+    overflow: hidden;
+    background: #21252d;
+    color: #8f9aa1;
     padding: 21px 0;
     border:1px solid #d3e0e9;
+}
+/*
+ * Styles for Custom Home page
+ */
+
+header, .main-nav-scrolled {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+header {
+    height: 214px;
+    background:url("/images/defaults/sunflower-bg.jpg") no-repeat;//background:#272b35;
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+.main-nav{
+    z-index: 150;
+}
+.hero-home{
+    margin: 0;
+    padding-top: 214px;
+}
+@media (max-width: 992px){
+    header,.ai-header {
+        padding-top: 0;
+    }
+    .ai-header{
+        height: 300px;
+    }
+    .ai-header-logo, .ai-header-name {
+        padding: 0;
+    }
+    img.ai-logo {
+        margin: 11px auto 7px auto;
+        width: 70px;
+        height: 70px;
+    }
+    .ai-title{
+        font-size: 24px;
+    }
+    .ai-slogan{
+        font-size: 36px;
+    }
+}
+.main-nav{
+    height: 64px;
+    margin-bottom: -64px;
+}
+.main-nav .navbar{
+    margin-bottom: 0;
+}
+#bg-wrapper{
+    background: #f5f8fa;
+    position: relative;
+}
+#hero-container{
+    padding-top: 60px;
+}
+.main-nav,#hero-container{
+    position: relative;
+}
+.main-nav-scrolled {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+.hero-body{
+    background:#f5f8fa;
 }

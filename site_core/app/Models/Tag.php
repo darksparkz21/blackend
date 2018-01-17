@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Androidizay\Models;
 
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -54,7 +54,7 @@ class Tag extends Model
 
     public function articles()
     {
-        return $this->belongsToMany('App\Models\Article', 'article_tag');
+        return $this->belongsToMany('Androidizay\Models\Article', 'article_tag');
     }
 
     /*

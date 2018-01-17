@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Androidizay\Http\Requests;
 
 class CategoryRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Androidizay\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ArticleRequest as StoreRequest;
-use App\Http\Requests\ArticleRequest as UpdateRequest;
+use Androidizay\Http\Requests\ArticleRequest as StoreRequest;
+use Androidizay\Http\Requests\ArticleRequest as UpdateRequest;
 
 class ArticleCrudController extends CrudController
 {
@@ -18,7 +18,7 @@ class ArticleCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel("App\Models\Article");
+        $this->crud->setModel("Androidizay\Models\Article");
         $this->crud->setRoute(config('backpack.base.route_prefix', 'admin').'/article');
         $this->crud->setEntityNameStrings('article', 'articles');
         $this->crud->allowAccess('revisions');
@@ -54,7 +54,7 @@ class ArticleCrudController extends CrudController
                                 'name' => 'category_id',
                                 'entity' => 'category',
                                 'attribute' => 'name',
-                                'model' => "App\Models\Category",
+                                'model' => "Androidizay\Models\Category",
                             ]);
 
         // ------ CRUD FIELDS
@@ -101,7 +101,7 @@ class ArticleCrudController extends CrudController
                                 'name' => 'category_id',
                                 'entity' => 'category',
                                 'attribute' => 'name',
-                                'model' => "App\Models\Category",
+                                'model' => "Androidizay\Models\Category",
                             ]);
         $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
                                 'label' => 'Tags',
@@ -109,7 +109,7 @@ class ArticleCrudController extends CrudController
                                 'name' => 'tags', // the method that defines the relationship in your Model
                                 'entity' => 'tags', // the method that defines the relationship in your Model
                                 'attribute' => 'name', // foreign key attribute that is shown to user
-                                'model' => "App\Models\Tag", // foreign key model
+                                'model' => "Androidizay\Models\Tag", // foreign key model
                                 'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
                             ]);
         $this->crud->addField([    // ENUM

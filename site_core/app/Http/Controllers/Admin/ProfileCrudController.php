@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Androidizay\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ProfileRequest as StoreRequest;
-use App\Http\Requests\ProfileRequest as UpdateRequest;
+use Androidizay\Http\Requests\ProfileRequest as StoreRequest;
+use Androidizay\Http\Requests\ProfileRequest as UpdateRequest;
 
 class ProfileCrudController extends CrudController
 {
@@ -18,7 +18,7 @@ class ProfileCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Profile');
+        $this->crud->setModel('Androidizay\Models\Profile');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/profile');
         $this->crud->setEntityNameStrings('profile', 'profiles');
 

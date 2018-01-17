@@ -7,8 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>Androidizay</title>
-    
+    <title>{{ config('app.name', 'Androidizay') }}</title>
+    <link rel="shortcut icon" href="{{{ asset('/favicon.ico') }}}">
     <link rel="canonical" href="http://blackend.com/blogs">
     
     <script async src="https://cdn.ampproject.org/v0.js"></script>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Androidizay\Http\Requests;
 
 class ArticleRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
 {

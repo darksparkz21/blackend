@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Androidizay\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;

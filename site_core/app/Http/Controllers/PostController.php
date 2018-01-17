@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Androidizay\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Article;
-use App\Models\Category;
-use App\Models\Tag;
-use App\Models\Image;
+use Androidizay\Models\Article;
+use Androidizay\Models\Category;
+use Androidizay\Models\Tag;
+use Androidizay\Models\Image;
 
 class PostController extends Controller
 {
@@ -26,9 +26,9 @@ class PostController extends Controller
     {
         //$posts = request()->user()->posts;
         $id = auth()->user()->id;
-        $posts = Article::where('user_id',$id)->get();
+        $articles = Article::where('user_id',$id)->get();
         return response()->json([
-            'posts' => $posts,
+            'posts' => $articles,
         ], 200);
     }
 
@@ -55,7 +55,7 @@ class PostController extends Controller
             'content' => 'required',
         ]);
 
-        $posts = Article::create([
+        $articles = Article::create([
             'title' => request('title'),
             'slug' => request('slug'),
             'content' => request('content'),
@@ -63,7 +63,7 @@ class PostController extends Controller
         ]);
 
         return response()->json([
-            'posts'    => $posts,
+            'posts'    => $articles,
             'message' => 'Success'
         ], 200);
     }
@@ -74,7 +74,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
         //
     }
@@ -85,7 +85,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
         //
     }
@@ -97,7 +97,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $articles)
+    public function update(Request $request, Article $article)
     {
         $this->validate($request, [
             'title' => 'required|max:255',
@@ -105,11 +105,11 @@ class PostController extends Controller
             'content' => 'required',
         ]);
  
-        $articles->title = request('title');
-        $articles->slug = request('slug');
-        $articles->content = request('content');
-        $articles->user_id = Auth::user()->id;
-        $articles->save();
+        $article->title = request('title');
+        $article->slug = request('slug');
+        $article->content = request('content');
+        $article->user_id = Auth::user()->id;
+        $article->save();
  
         return response()->json([
             'message' => 'Posts updated successfully!'
@@ -122,9 +122,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $articles)
+    public function destroy(Article $article)
     {
-        $articles->delete();
+        $article->delete();
     }
 
     public function page()

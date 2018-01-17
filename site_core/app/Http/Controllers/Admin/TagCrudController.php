@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Androidizay\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\TagRequest as StoreRequest;
-use App\Http\Requests\TagRequest as UpdateRequest;
+use Androidizay\Http\Requests\TagRequest as StoreRequest;
+use Androidizay\Http\Requests\TagRequest as UpdateRequest;
 
 class TagCrudController extends CrudController
 {
@@ -18,7 +18,7 @@ class TagCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel("App\Models\Tag");
+        $this->crud->setModel("Androidizay\Models\Tag");
         $this->crud->setRoute(config('backpack.base.route_prefix', 'admin').'/tag');
         $this->crud->setEntityNameStrings('tag', 'tags');
 

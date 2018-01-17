@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Androidizay\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\CategoryRequest as StoreRequest;
-use App\Http\Requests\CategoryRequest as UpdateRequest;
+use Androidizay\Http\Requests\CategoryRequest as StoreRequest;
+use Androidizay\Http\Requests\CategoryRequest as UpdateRequest;
 
 class CategoryCrudController extends CrudController
 {
@@ -18,7 +18,7 @@ class CategoryCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel("App\Models\Category");
+        $this->crud->setModel("Androidizay\Models\Category");
         $this->crud->setRoute(config('backpack.base.route_prefix', 'admin').'/category');
         $this->crud->setEntityNameStrings('category', 'categories');
 
@@ -46,7 +46,7 @@ class CategoryCrudController extends CrudController
                                 'name' => 'parent_id',
                                 'entity' => 'parent',
                                 'attribute' => 'name',
-                                'model' => "App\Models\Category",
+                                'model' => "Androidizay\Models\Category",
                             ]);
 
         // ------ CRUD FIELDS
@@ -67,7 +67,7 @@ class CategoryCrudController extends CrudController
                                 'name' => 'parent_id',
                                 'entity' => 'parent',
                                 'attribute' => 'name',
-                                'model' => "App\Models\Category",
+                                'model' => "Androidizay\Models\Category",
                             ]);
     }
 
